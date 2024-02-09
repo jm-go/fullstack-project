@@ -1,3 +1,5 @@
+@use "src/assets/styles/variables" as *;
+
 .header {
     position: fixed;
     top: 0;
@@ -8,6 +10,7 @@
 
     &__container {
         margin-bottom: 1rem;
+        margin-left: 2rem;
     }
 
     &__greeting {
@@ -54,5 +57,35 @@
         cursor: pointer;
         font-size: 0.9rem;
         color: white;
+    }
+}
+
+@media (max-width: $breakpoint-mobile-large) {
+
+    .header {
+        left: 0;
+        padding: 2rem 1.5rem;
+
+        &__container {
+            margin-left: 0;
+        }
+
+        &__explore {
+            text-wrap: wrap;
+            font-size: 1.6rem;
+            max-width: 85%;
+        }
+
+        &__search {
+
+            &--input {
+                width: 45%;
+            }
+        }
+
+        &__button {
+            padding: 0.7rem 1rem;
+        }
+        
     }
 }
