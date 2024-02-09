@@ -14,3 +14,35 @@ body {
     background: black;
     background: linear-gradient(to right, rgba(237, 237, 216, 0.722), rgba(251, 170, 208, 0.608));
 }
+
+html {
+    font-size: 16px;
+}
+
+@media screen and (min-width: $breakpoint-tablet) {
+
+    html {
+        font-size: 17px;
+    }
+}
+
+@media screen and (min-width: $breakpoint-laptop) {
+
+    html {
+        font-size: 17px;
+    }
+}
+
+@media screen and (min-width: $breakpoint-desktop) {
+
+    html {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: $breakpoint-large-desktop) {
+
+    html {
+        font-size: 35px;
+    }
+}
