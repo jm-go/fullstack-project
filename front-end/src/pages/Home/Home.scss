@@ -1,0 +1,16 @@
+@use "src/assets/styles/variables" as *;
+
+.home {
+    display: flex;
+
+    &__content {
+        flex-grow: 1;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: $breakpoint-tablet) {
+    .home {
+        flex-direction: column;
+    }
+}

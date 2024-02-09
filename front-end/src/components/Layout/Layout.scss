@@ -1,0 +1,17 @@
+@use "src/assets/styles/variables" as *;
+
+.layout {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: $breakpoint-tablet) {
+
+//   .layout{
+//     display: flex;
+//     flex-direction: row;
+//   }
+}

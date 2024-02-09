@@ -1,16 +1,16 @@
-import { useState } from "react";
-import Header from "./components/Header/Header";
 import "./main.scss";
-import Sidebar from "./components/Sidebar/Sidebar";
+import Home from "./pages/Home/Home";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const App = () => {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <Header />
-      <Sidebar/>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/fullstack-project" element={<Home />} />
+        {/* <Route path="/favourites" element={<Favourites />} />
+        <Route path="/book/:id" element={<BookDetails />} /> */}
+      </Routes>
+    </BrowserRouter>
   );
 };
 
