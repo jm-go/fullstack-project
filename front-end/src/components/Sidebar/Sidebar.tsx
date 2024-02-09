@@ -1,4 +1,5 @@
-import './Sidebar.scss'; 
+import { Heart, Home } from "lucide-react";
+import "./Sidebar.scss";
 
 const Sidebar = () => {
   return (
@@ -6,10 +7,10 @@ const Sidebar = () => {
       <nav className="sidebar__nav">
         <ul className="sidebar__list">
           <li className="sidebar__item">
-            <span className="sidebar__item sidebar__item--icon">🏠</span> 
+            <Home className="sidebar__item sidebar__item--icon" />
           </li>
           <li className="sidebar__item">
-            <span className="sidebar__item sidebar__item--icon">⭐</span>
+            <Heart className="sidebar__item sidebar__item--icon" />
           </li>
         </ul>
       </nav>
