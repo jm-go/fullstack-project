@@ -1,5 +1,4 @@
 @use "src/assets/styles/variables" as *;
-//@use "src/assets/styles/layout";
 
 * {
     margin: 0;
@@ -11,7 +10,6 @@ body {
     overflow-x: hidden;
     height: 100vb;
     width: 100vw; 
-    background: black;
     background: linear-gradient(to right, rgba(237, 237, 216, 0.722), rgba(251, 170, 208, 0.608));
 }
 
@@ -29,7 +27,7 @@ html {
 @media screen and (min-width: $breakpoint-laptop) {
 
     html {
-        font-size: 17px;
+        font-size: 18px;
     }
 }
 

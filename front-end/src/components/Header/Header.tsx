@@ -6,7 +6,7 @@ const Header = () => {
       <div className="header__container">
         <h1 className="header__greeting">Hey there, bookaholic!</h1>
         <p className="header__explore">
-          Explore the world of (my) books with a click
+        Dive into my personal library with a click
         </p>
 
         <div className="header__search">
