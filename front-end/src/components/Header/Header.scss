@@ -16,14 +16,14 @@
     &__greeting {
         font-size: 1rem;
         font-weight: 400;
-        color: #555;
+        color: $color-grey;
         margin-top: 3rem;
     }
 
     &__explore {
         font-size: 2rem;
         font-weight: 800;
-        color: black;
+        color: $color-black;
         margin: 0;
         margin-top: 1rem;
         margin-bottom: 2.5rem;
@@ -51,12 +51,12 @@
     &__button {
         margin-left: 1rem;
         padding: 0.7rem 1.8rem;
-        background-color: #6363fa;
+        background-color: $color-lavender;
         border: none;
         border-radius: 1.1rem;
         cursor: pointer;
         font-size: 0.9rem;
-        color: white;
+        color: $color-white;
     }
 }
 
