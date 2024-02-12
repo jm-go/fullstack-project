@@ -3,9 +3,11 @@
 .book-card {
     display: flex;
     flex-direction: column;
-    max-width: 15rem;
+    justify-content: center;
+    align-content: center;
+    width: 15rem;
     padding: 1rem 1rem;
-    height: auto;
+    height: 13rem;
     box-shadow: 0 4px 8px rgba(0, 1.5, 0, 0.2);
     border-radius: 1.5rem;
     overflow: hidden;
@@ -19,7 +21,7 @@
         height: auto;
         object-fit: cover;
         border-radius: 1rem;
-        margin-bottom: 0.3rem;
+        margin-bottom: 0.2rem;
     }
 
     &__info {
@@ -28,7 +30,7 @@
     }
 
     &__author {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         color: $color-grey;
         font-style: italic;
         margin-bottom: 0.3rem;
@@ -36,12 +38,13 @@
     }
 
     &__title {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         font-family: $font-text;
     }
 
     &__description {
-        font-size: 0.8rem;
+        padding-bottom: 0.5rem;
+        font-size: 0.7rem;
         text-align: justify;
     }
 
