@@ -7,7 +7,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/fullstack-project" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/favourites" element={<Favourites />} />
         {/* <Route path="/book/:id" element={<BookDetails />} /> */}
       </Routes>
