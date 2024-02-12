@@ -12,6 +12,7 @@
     background: $color-white;
     align-items: center;
     margin: 1rem 0rem;
+    transition: transform 0.2s ease-in-out;
 
     &__image {
         width: 35%;
@@ -46,6 +47,7 @@
 
     &:hover {
         cursor: pointer;
+        transform: scale(1.03);
     }
 }
 
@@ -57,6 +59,6 @@
 
 @media (min-width: $breakpoint-large-desktop) {
     .book-card {
-       max-width: 12rem;
+        max-width: 12rem;
     }
 }
