@@ -11,6 +11,7 @@
     overflow: hidden;
     background: $color-white;
     align-items: center;
+    margin: 1rem 0rem;
 
     &__image {
         width: 35%;
@@ -41,5 +42,21 @@
     &__description {
         font-size: 0.8rem;
         text-align: justify;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+@media (min-width: $breakpoint-laptop) {
+    .book-card {
+        max-width: 12rem;
+    }
+}
+
+@media (min-width: $breakpoint-large-desktop) {
+    .book-card {
+       max-width: 12rem;
     }
 }

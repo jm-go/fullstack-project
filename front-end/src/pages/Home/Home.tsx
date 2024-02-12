@@ -2,8 +2,8 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import "./Home.scss";
 import Header from "../../components/Header/Header";
 import Layout from "../../components/Layout/Layout";
-import BookCard from "../../components/BookCard/BookCard";
-import { mockBook } from "../../components/data/books";
+import { mockBooks } from "../../components/data/books";
+import BookList from "../../components/BookList/BookList";
 
 const Home = () => {
   return (
@@ -11,9 +11,7 @@ const Home = () => {
       <main className="home">
         <Sidebar />
         <Header />
-        <div className="home__content">
-        <BookCard book={mockBook} />
-        </div>
+        <BookList books={mockBooks} />
       </main>
     </Layout>
   );
