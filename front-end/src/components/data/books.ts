@@ -1,15 +1,20 @@
-export const mockBooks = [
+import Book from "../../types/book";
+
+export const mockBooks: Book[] = [
   {
+    id: 1,
     cover: "src/assets/images/salem.jpg",
     title: "Salem's Lot",
     author: "Stephen King",
-    description: "Salem's Lot is the story of a small American town being overtaken by vampires, and a brave band of people who come together to fight an ancient evil.",
+    description:
+      "Salem's Lot is the story of a small American town being overtaken by vampires, and a brave band of people who come together to fight an ancient evil.",
     genre: "Horror",
     longDescription:
       "Author Ben Mears returns to ‘Salem's Lot to write a book about a house that has haunted him since childhood only to find his isolated hometown infested with vampires. While the vampires claim more victims, Mears convinces a small group of believers to combat the undead.",
     favourite: false,
   },
   {
+    id: 2,
     cover: "src/assets/images/taker.jpg",
     title: "The Taker",
     author: "Alma Katsu",
@@ -21,6 +26,7 @@ export const mockBooks = [
     favourite: true,
   },
   {
+    id: 3,
     cover: "src/assets/images/passage.jpg",
     title: "The Passage",
     author: "Justin Cronin",
@@ -32,6 +38,7 @@ export const mockBooks = [
     favourite: true,
   },
   {
+    id: 4,
     cover: "src/assets/images/twilight.jpg",
     title: "Twilight",
     author: "Stephenie Meyer",
@@ -43,16 +50,19 @@ export const mockBooks = [
     favourite: false,
   },
   {
+    id: 5,
     cover: "src/assets/images/dracula.jpg",
     title: "Dracula",
     author: "Bram Stoker",
-    description: "The great masterpiece of the horror genre, brilliantly evoking a nightmare world of vampires and vampire hunters and also illuminating the dark corners of Victorian desire.",
+    description:
+      "The great masterpiece of the horror genre, brilliantly evoking a nightmare world of vampires and vampire hunters and also illuminating the dark corners of Victorian desire.",
     genre: "Horror",
     longDescription:
       "When Jonathan Harker visits Transylvania to help Count Dracula with the purchase of a London house, he makes a series of horrific discoveries about his client. Soon afterwards, various bizarre incidents unfold in England: an apparently unmanned ship is wrecked off the coast of Whitby; a young woman discovers strange puncture marks on her neck; and the inmate of a lunatic asylum raves about the 'Master' and his imminent arrival. In Dracula, Bram Stoker created one of the great masterpieces of the horror genre, brilliantly evoking a nightmare world of vampires and vampire hunters and also illuminating the dark corners of Victorian sexuality and desire.",
     favourite: false,
   },
   {
+    id: 6,
     cover: "src/assets/images/empire.jpg",
     title: "Empire of The Vampire",
     author: "Jay Kristoff",
@@ -64,6 +74,7 @@ export const mockBooks = [
     favourite: true,
   },
   {
+    id: 7,
     cover: "src/assets/images/mages.jpg",
     title: "Magicians' Guild",
     author: "Trudi Canavan",
@@ -75,6 +86,7 @@ export const mockBooks = [
     favourite: false,
   },
   {
+    id: 8,
     cover: "src/assets/images/witcher.jpg",
     title: "The Witcher: Blood of Elves",
     author: "Andrzej Sapkowski",
@@ -86,6 +98,7 @@ export const mockBooks = [
     favourite: false,
   },
   {
+    id: 9,
     cover: "src/assets/images/hunger.jpg",
     title: "The Hunger",
     author: "Alma Katsu",
@@ -97,6 +110,7 @@ export const mockBooks = [
     favourite: false,
   },
   {
+    id: 10,
     cover: "src/assets/images/garden.jpg",
     title: "The Bone Garden",
     author: "Tess Gerritsen",
@@ -108,6 +122,7 @@ export const mockBooks = [
     favourite: true,
   },
   {
+    id: 11,
     cover: "src/assets/images/fevre.jpg",
     title: "Fevre Dream",
     author: "George R.R. Martin",

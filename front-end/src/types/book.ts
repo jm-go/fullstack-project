@@ -1,4 +1,5 @@
 type Book = {
+  id: number;
   cover: string;
   title: string;
   author: string;
