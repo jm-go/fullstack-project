@@ -1,4 +1,4 @@
-import { Heart, Home } from "lucide-react";
+import { Heart, Home, PlusCircle } from "lucide-react";
 import "./Sidebar.scss";
 import { Link } from "react-router-dom";
 
@@ -15,6 +15,11 @@ const Sidebar = () => {
           <li className="sidebar__item">
             <Link to="/favourites">
               <Heart className="sidebar__item sidebar__item--icon" />
+            </Link>
+          </li>
+          <li className="sidebar__item">
+            <Link to="/add">
+              <PlusCircle className="sidebar__item sidebar__item--icon" />
             </Link>
           </li>
         </ul>
