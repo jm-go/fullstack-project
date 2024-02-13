@@ -1,8 +1,9 @@
-package com.nology.api;
+package com.nology.api.responses;
 
 import com.nology.api.models.Book;
 import com.nology.api.repositories.AuthorRepository;
 import com.nology.api.repositories.BookRepository;
+import com.nology.api.responses.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

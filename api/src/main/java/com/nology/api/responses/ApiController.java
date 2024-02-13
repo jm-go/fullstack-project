@@ -1,4 +1,4 @@
-package com.nology.api;
+package com.nology.api.responses;
 
 
 import com.nology.api.models.Book;
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @CrossOrigin(origins = "http://localhost:5173")
 public class ApiController {
-
 
     @Autowired
     private ApiService apiService;

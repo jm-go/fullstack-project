@@ -1,6 +1,5 @@
 package com.nology.api.models;
 
-
 import jakarta.persistence.*;
 
 @Entity
@@ -11,10 +10,6 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne
-    @JoinColumn(name = "author_id", insertable = false, updatable = false)
-    private Author author_id;
-
     @Column(name = "title")
     private String title;
 
@@ -24,7 +19,6 @@ public class Book {
     @Column(name = "description_long")
     private String descriptionLong;
 
-
     @Column(name = "genre")
     private String genre;
 
@@ -33,6 +27,11 @@ public class Book {
 
     @Column(name = "is_favourite")
     private boolean isFavourite;
+
+    @ManyToOne
+    @JoinColumn(name = "author_id", insertable = false, updatable = false)
+    private Author author_id;
+
 
     public void setId(long id) {
         this.id = id;

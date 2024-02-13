@@ -1,4 +1,4 @@
-package com.nology.api;
+package com.nology.api.responses;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
