@@ -1,9 +1,8 @@
 package com.nology.api;
 
-import com.nology.api.models.Author;
+import com.nology.api.models.Book;
 import com.nology.api.repositories.AuthorRepository;
 import com.nology.api.repositories.BookRepository;
-import com.nology.api.repositories.FavouriteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +15,10 @@ public class ApiService {
     @Autowired
     BookRepository bookRepository;
 
-    @Autowired
-    FavouriteRepository favouriteRepository;
+
+    public Book getBookById(long id) {
+        return bookRepository.findById(id).orElseThrow(() -> new NotFoundException("Book Not Found"));
+    }
 
 
 
