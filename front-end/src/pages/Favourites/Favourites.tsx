@@ -5,12 +5,16 @@ import Layout from "../../components/Layout/Layout";
 import { mockBooks } from "../../components/data/books";
 import BookList from "../../components/BookList/BookList";
 
-const Favourites = () => {
+type FavouritesProps = {
+  onSearch: (value: string) => void;
+};
+
+const Favourites = ({ onSearch }: FavouritesProps) => {
   return (
     <Layout>
       <main className="favourites">
         <Sidebar />
-        <Header />
+        <Header onSearch={onSearch} />
         <BookList books={mockBooks} />
       </main>
     </Layout>

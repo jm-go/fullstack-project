@@ -3,6 +3,8 @@
 .book-list {
     display: flex;
     margin-bottom: 2rem;
+    justify-content: center;
+    align-content: center;
 
     &__container {
         display: flex;
@@ -18,6 +20,7 @@
 
     @media screen and (min-width: $breakpoint-tablet) {
         padding-left: 3rem;
+        margin-left: 2rem;
     }
 
     @media screen and (min-width: $breakpoint-laptop) {
