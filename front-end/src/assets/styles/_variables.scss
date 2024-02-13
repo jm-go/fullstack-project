@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@300&family=Roboto&display=swap');
+
+/* Fonts */
+$font-body: "Lato", sans-serif;
+$font-body-secondary: "Roboto", sans-serif;
+$font-text: "Poppins", sans-serif;
+
+/* Colour palette */
+$color-grey: #787777;
+$color-grey-secondary: #b7b4b4;
+$color-white: #FFFFFF;
+$color-lavender: #6363fa;
+$color-pink: #f8a0cb;
+$color-black: #000000;
+
+/* Breakpoints for media queries */
+$breakpoint-mobile: 320px;
+$breakpoint-mobile-large: 426px;
+$breakpoint-tablet: 768px;
+$breakpoint-laptop: 1024px;
+$breakpoint-desktop: 1440px;
+$breakpoint-large-desktop: 2560px;

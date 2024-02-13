@@ -1,0 +1,43 @@
+@use "src/assets/styles/variables" as *;
+
+.book-list {
+    display: flex;
+    margin-bottom: 2rem;
+    justify-content: center;
+    align-content: center;
+
+    &__container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+        margin-top: 37vh;
+        height: 63vh;
+        overflow-y: auto;
+    }
+
+    @media screen and (min-width: $breakpoint-tablet) {
+        padding-left: 3rem;
+        margin-left: 2rem;
+    }
+
+    @media screen and (min-width: $breakpoint-laptop) {
+        padding-left: 5rem;
+
+        &__container {
+            gap: 2rem;
+            margin-top: 38vh;
+            height: 62vh;
+        }
+    }
+
+    @media screen and (min-width: $breakpoint-desktop) {
+
+        &__container {
+            margin-top: 35vh;
+            height: 65vh;
+        }
+    }
+}

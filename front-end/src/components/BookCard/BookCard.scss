@@ -1,0 +1,66 @@
+@use "src/assets/styles/variables" as *;
+
+.book-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    width: 15rem;
+    padding: 1rem 1rem;
+    height: 13rem;
+    box-shadow: 0 4px 8px rgba(0, 1.5, 0, 0.2);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    background: $color-white;
+    align-items: center;
+    margin: 1rem 1rem;
+    transition: transform 0.2s ease-in-out;
+
+    &__image {
+        width: 35%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 1rem;
+        margin-bottom: 0.2rem;
+    }
+
+    &__info {
+        padding: 0.2rem;
+        text-align: center;
+    }
+
+    &__author {
+        font-size: 0.6rem;
+        color: $color-grey;
+        margin-bottom: 0.3rem;
+        font-family: $font-text;
+    }
+
+    &__title {
+        font-size: 0.8rem;
+        font-family: $font-text;
+    }
+
+    &__description {
+        padding-bottom: 0.5rem;
+        font-size: 0.7rem;
+        text-align: justify;
+    }
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.03);
+    }
+}
+
+@media (min-width: $breakpoint-laptop) {
+    .book-card {
+        max-width: 12rem;
+    }
+}
+
+@media (min-width: $breakpoint-large-desktop) {
+    .book-card {
+        max-width: 12rem;
+    }
+}
