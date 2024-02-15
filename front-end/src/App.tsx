@@ -8,23 +8,38 @@ import BookResponse from "./types/BookResponse";
 
 const App = () => {
   const [books, setBooks] = useState<BookResponse[]>([]);
+  const [favouriteBooks, setFavouriteBooks] = useState<BookResponse[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
 
-  useEffect(() => {
-    const getBooks = async () => {
-      try {
-        const response = await fetch("http://localhost:8080/books");
-        if (!response.ok) {
-          throw new Error("Failed to fetch books.");
-        }
-        const booksData = await response.json() as BookResponse[];
-        setBooks(booksData);
-      } catch (error) {
-        console.error("Fetch error:", error);
+  const getBooks = async () => {
+    try {
+      const response = await fetch("http://localhost:8080/books");
+      if (!response.ok) {
+        throw new Error("Failed to fetch books.");
       }
-    };
+      const booksData = (await response.json()) as BookResponse[];
+      setBooks(booksData);
+    } catch (error) {
+      console.error("Fetch error:", error);
+    }
+  };
 
+  const getFavouriteBooks = async () => {
+    try {
+      const response = await fetch("http://localhost:8080/favourites");
+      if (!response.ok) {
+        throw new Error("Failed to fetch favourite books.");
+      }
+      const favouriteBooksData = (await response.json()) as BookResponse[];
+      setFavouriteBooks(favouriteBooksData);
+    } catch (error) {
+      console.error("Fetch error:", error);
+    }
+  };
+
+  useEffect(() => {
     getBooks();
+    getFavouriteBooks();
   }, []);
 
   const handleSearch = (searchValue: string) => {
@@ -35,7 +50,11 @@ const App = () => {
     ? books.filter((book) => book.title.toLowerCase().includes(searchQuery))
     : books;
 
-  const favouriteBooks = filteredBooks.filter((book) => book.isFavourite);
+  const filteredFavouriteBooks = searchQuery
+    ? favouriteBooks.filter((book) =>
+        book.title.toLowerCase().includes(searchQuery)
+      )
+    : favouriteBooks;
 
   return (
     <BrowserRouter>
@@ -44,12 +63,12 @@ const App = () => {
           path="/"
           element={<Home books={filteredBooks} onSearch={handleSearch} />}
         />
-        {/* <Route
+        <Route
           path="/favourites"
           element={
             <Favourites books={favouriteBooks} onSearch={handleSearch} />
           }
-        /> */}
+        />
         <Route path="/:id" element={<BookDetails books={books} />} />
       </Routes>
     </BrowserRouter>
