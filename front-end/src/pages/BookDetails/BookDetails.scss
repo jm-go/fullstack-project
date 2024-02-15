@@ -17,7 +17,7 @@
     }
 
     &__image {
-        max-width: 11rem;
+        max-width: 10rem;
         height: auto;
         object-fit: cover;
         border-radius: 1rem;
@@ -36,11 +36,11 @@
     }
 
     &__author {
-        font-family: $font-body;
+        font-family: $font-body-secondary;
     }
 
     &__genre {
-        font-family: $font-body;
+        font-family: $font-body-secondary;
     }
 
     &__description {
@@ -51,11 +51,11 @@
     }
 
     &__favourite {
-        font-family: $font-body;
+        font-family: $font-body-secondary;
     }
 
     &__details {
-        font-weight: 700;
+        font-weight: 600;
         color: $color-grey;
         font-size: 0.8rem;
         display: flex;

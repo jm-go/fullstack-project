@@ -29,12 +29,12 @@ const BookDetails = ({ books }: BookDetailsProps) => {
               </div>
               <div className="book-details__info">
                 <h2 className="book-details__title">{selectedBook.title}</h2>
-                <p className="book-details__author">{`${selectedBook.authorId.firstName} ${selectedBook.authorId.lastName}`}</p>
+                <section className="book-details__details"><p className="book-details__author">{`${selectedBook.authorId.firstName} ${selectedBook.authorId.lastName}`}</p>
                 <p className="book-details__genre">{selectedBook.genre}</p>
                 <p className="book-details__favourite">
                   Favourite:{" "}
                   {selectedBook.isFavourite === "true" ? " Yes" : " No"}
-                </p>
+                </p></section>
                 <p className="book-details__description">
                   {selectedBook.descriptionLong}
                 </p>
