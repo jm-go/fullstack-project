@@ -23,10 +23,10 @@ const App = () => {
           path="/"
           element={<Home onSearch={handleSearch} />}
         />
-        <Route
+        {/* <Route
           path="/favourites"
           element={<Favourites onSearch={handleSearch} />}
-        />
+        /> */}
         {/* <Route path="/add" element={<Add />} /> */}
         <Route path="/:id" element={<BookDetails books={mockBooks} />} />
       </Routes>

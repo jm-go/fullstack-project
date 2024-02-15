@@ -1,19 +1,19 @@
 type Author = {
-    id: number;
-    first_name: string;
-    last_name: string;
+    id: number,
+    firstName: string,
+    lastName: string,
   };
   
   type BookResponse = {
-    id: number;
-    cover: string;
-    title: string;
-    author_id: number;
-    description_short: string;
-    genre: string;
-    description_long: string;
-    is_favourite: boolean;
-    author: Author;
+    id: number,
+    title: string,
+    author_id: number,
+    descriptionShort: string,
+    descriptionLong: string,
+    genre: string,
+    cover: string,
+    isFavourite: string,
+    authorId: Author,
   };
   
   export default BookResponse;

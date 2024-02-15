@@ -23,6 +23,16 @@ const Home = ({ onSearch }: HomeProps) => {
     fetchBooks();
   }, []);
 
+  // const getBooks = async () => {
+  //   const response = await fetch("http://localhost:8080/books");
+  //   const booksData = await response.json();
+  //   setBooks(booksData);
+  // };
+
+  // useEffect(() => {
+  //   getBooks();
+  // }, []);
+
   return (
     <Layout>
       <main className="home">

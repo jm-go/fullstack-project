@@ -7,19 +7,22 @@ type BookCardProps = {
 };
 
 const BookCard = ({ book }: BookCardProps) => {
+  const {
+    title,
+    cover,
+    descriptionShort,
+    authorId: { firstName, lastName } = {},
+  } = book;
+
+  console.log(book);
+
   return (
     <div className="book-card">
-      <img
-        src={book.cover || BookCover}
-        alt={book.title}
-        className="book-card__image"
-      />
+      <img src={cover || BookCover} alt={title} className="book-card__image" />
       <div className="book-card__info">
-        <h2 className="book-card__title">{book.title}</h2>
-        <h3 className="book-card__author">
-          {`${book.author.first_name} ${book.author.last_name}`}/
-        </h3>
-        <p className="book-card__description">{book.description_short}</p>
+        <h2 className="book-card__title">{title}</h2>
+        <h3 className="book-card__author">{`${firstName} ${lastName}`}</h3>
+        <p className="book-card__description">{descriptionShort}</p>
       </div>
     </div>
   );

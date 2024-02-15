@@ -126,7 +126,7 @@ export const mockBooks: Book[] = [
     cover: "src/assets/images/fevre.jpg",
     title: "Fevre Dream",
     author: "George R.R. Martin",
-    description:
+    description_short:
       "The spellbinding tale of a vampire’s quest to unite his race with humanity, of a garrulous riverman’s dream of immortality, and of the undying legends of the steamboat era and a majestic, ancient river.",
     genre: "Fantasy",
     longDescription:

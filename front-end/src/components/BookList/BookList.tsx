@@ -1,5 +1,4 @@
 import BookCard from "../BookCard/BookCard";
-import Book from "../../types/book";
 import "./BookList.scss";
 import BookResponse from "../../types/BookResponse";
 
