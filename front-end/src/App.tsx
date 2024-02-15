@@ -1,34 +1,56 @@
-import { useState } from "react";
-import { mockBooks } from "./components/data/books";
+import { useEffect, useState } from "react";
 import "./main.scss";
 import BookDetails from "./pages/BookDetails/BookDetails";
 import Favourites from "./pages/Favourites/Favourites";
 import Home from "./pages/Home/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import BookResponse from "./types/BookResponse";
 
 const App = () => {
-  const [searchResults, setSearchResults] = useState(mockBooks);
+  const [books, setBooks] = useState<BookResponse[]>([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const handleSearch = (searchQuery: string) => {
-    const filteredBooks = mockBooks.filter((book) =>
-      book.title.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    setSearchResults(filteredBooks);
+  useEffect(() => {
+    const getBooks = async () => {
+      try {
+        const response = await fetch("http://localhost:8080/books");
+        if (!response.ok) {
+          throw new Error("Failed to fetch books.");
+        }
+        const booksData = await response.json() as BookResponse[];
+        setBooks(booksData);
+      } catch (error) {
+        console.error("Fetch error:", error);
+      }
+    };
+
+    getBooks();
+  }, []);
+
+  const handleSearch = (searchValue: string) => {
+    setSearchQuery(searchValue.toLowerCase());
   };
+
+  const filteredBooks = searchQuery
+    ? books.filter((book) => book.title.toLowerCase().includes(searchQuery))
+    : books;
+
+  const favouriteBooks = filteredBooks.filter((book) => book.isFavourite);
 
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path="/"
-          element={<Home onSearch={handleSearch} />}
+          element={<Home books={filteredBooks} onSearch={handleSearch} />}
         />
         {/* <Route
           path="/favourites"
-          element={<Favourites onSearch={handleSearch} />}
+          element={
+            <Favourites books={favouriteBooks} onSearch={handleSearch} />
+          }
         /> */}
-        {/* <Route path="/add" element={<Add />} /> */}
-        <Route path="/:id" element={<BookDetails books={mockBooks} />} />
+        <Route path="/:id" element={<BookDetails books={books} />} />
       </Routes>
     </BrowserRouter>
   );

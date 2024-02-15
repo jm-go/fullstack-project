@@ -8,20 +8,11 @@ import BookResponse from "../../types/BookResponse";
 
 type HomeProps = {
   onSearch: (value: string) => void;
+  books: BookResponse[];
 };
 
-const Home = ({ onSearch }: HomeProps) => {
-  const [books, setBooks] = useState<BookResponse[]>([]);
-
-  useEffect(() => {
-    const fetchBooks = async () => {
-      const response = await fetch("http://localhost:8080/books");
-      const data = await response.json();
-      setBooks(data);
-    };
-
-    fetchBooks();
-  }, []);
+const Home = ({ books, onSearch }: HomeProps) => {
+  //const [books, setBooks] = useState<BookResponse[]>([]);
 
   // const getBooks = async () => {
   //   const response = await fetch("http://localhost:8080/books");

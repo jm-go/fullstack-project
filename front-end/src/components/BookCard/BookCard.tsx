@@ -14,8 +14,6 @@ const BookCard = ({ book }: BookCardProps) => {
     authorId: { firstName, lastName } = {},
   } = book;
 
-  console.log(book);
-
   return (
     <div className="book-card">
       <img src={cover || BookCover} alt={title} className="book-card__image" />
