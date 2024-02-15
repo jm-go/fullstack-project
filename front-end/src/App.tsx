@@ -21,7 +21,7 @@ const App = () => {
       <Routes>
         <Route
           path="/"
-          element={<Home onSearch={handleSearch} books={searchResults} />}
+          element={<Home onSearch={handleSearch} />}
         />
         <Route
           path="/favourites"
