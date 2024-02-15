@@ -1,19 +1,14 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent } from "react";
 import "./Header.scss";
 
 type HeaderProps = {
   onSearch: (value: string) => void;
+  searchValue: string;
 };
 
-const Header = ({ onSearch }: HeaderProps) => {
-  const [searchValue, setSearchValue] = useState("");
-
+const Header = ({ onSearch, searchValue }: HeaderProps) => {
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(event.target.value);
-  };
-
-  const handleSearchClick = () => {
-    onSearch(searchValue);
+    onSearch(event.target.value);
   };
 
   return (
@@ -32,9 +27,6 @@ const Header = ({ onSearch }: HeaderProps) => {
             value={searchValue}
             onChange={handleInputChange}
           />
-          <button className="header__button" onClick={handleSearchClick}>
-            Search
-          </button>
         </div>
       </div>
     </header>

@@ -4,19 +4,29 @@ import Header from "../../components/Header/Header";
 import Layout from "../../components/Layout/Layout";
 import BookList from "../../components/BookList/BookList";
 import BookResponse from "../../types/BookResponse";
+import { useState } from "react";
 
 type HomeProps = {
-  onSearch: (value: string) => void;
   books: BookResponse[];
 };
 
-const Home = ({ books, onSearch }: HomeProps) => {
+const Home = ({ books }: HomeProps) => {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearch = (searchValue: string) => {
+    setSearchQuery(searchValue.toLowerCase());
+  };
+
+  const filteredBooks = searchQuery
+    ? books.filter((book) => book.title.toLowerCase().includes(searchQuery))
+    : books;
+
   return (
     <Layout>
       <main className="home">
         <Sidebar />
-        <Header onSearch={onSearch} />
-        <BookList books={books} />
+        <Header onSearch={handleSearch} searchValue={searchQuery} />
+        <BookList books={filteredBooks} />
       </main>
     </Layout>
   );

@@ -9,7 +9,6 @@ import BookResponse from "./types/BookResponse";
 const App = () => {
   const [books, setBooks] = useState<BookResponse[]>([]);
   const [favouriteBooks, setFavouriteBooks] = useState<BookResponse[]>([]);
-  const [searchQuery, setSearchQuery] = useState("");
 
   const getBooks = async () => {
     try {
@@ -42,34 +41,15 @@ const App = () => {
     getFavouriteBooks();
   }, []);
 
-  const handleSearch = (searchValue: string) => {
-    setSearchQuery(searchValue.toLowerCase());
-  };
-
-  const filteredBooks = searchQuery
-    ? books.filter((book) => book.title.toLowerCase().includes(searchQuery))
-    : books;
-
-  const filteredFavouriteBooks = searchQuery
-    ? favouriteBooks.filter((book) =>
-        book.title.toLowerCase().includes(searchQuery)
-      )
-    : favouriteBooks;
-
   return (
     <BrowserRouter>
       <Routes>
-        <Route
-          path="/"
-          element={<Home books={filteredBooks} onSearch={handleSearch} />}
-        />
+        <Route path="/" element={<Home books={books} />} />
         <Route
           path="/favourites"
-          element={
-            <Favourites books={favouriteBooks} onSearch={handleSearch} />
-          }
+          element={<Favourites books={favouriteBooks} />}
         />
-        <Route path="/:id" element={<BookDetails books={books} />} />
+        {/* <Route path="/:id" element={<BookDetails books={books} />} /> */}
       </Routes>
     </BrowserRouter>
   );
