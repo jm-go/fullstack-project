@@ -14,7 +14,7 @@ import java.util.List;
 public interface BookRepository extends JpaRepository<Book, Long> {
 
     // READ
-//    List<Book> getAllByOrderByDateCreatedDesc();
+    List<Book> findAllByOrderByIdAsc();
 
     @Query(value = "SELECT DISTINCT id FROM book ORDER BY id", nativeQuery = true)
     List<Long> getDistinctIds();

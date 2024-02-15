@@ -41,14 +41,10 @@ public class ApiService {
         return bookRepository.findById(id).orElseThrow(() -> new NotFoundException("Book Not Found."));
     }
 
-//    public List<Book> getAllBooks(int limit) {
-//        return bookRepository
-//                .getAllByOrderByDateCreatedDesc()
-//                .stream()
-//                .limit(limit)
-//                .collect(Collectors.toList());
-//
-//    }
+    public List<Book> getAllBooksOrderedById() {
+        return bookRepository.findAllByOrderByIdAsc();
+    }
+
 
     // Delete
     @Transactional
