@@ -65,6 +65,14 @@
         margin-bottom: 1rem;
     }
 
+    &__message {
+        font-size: 1rem;
+        display: flex;
+        font-family: $font-text;
+        text-align: center;
+        justify-self: center;
+    }
+
 }
 
 .sidebar {

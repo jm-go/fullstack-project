@@ -49,7 +49,7 @@ const App = () => {
           path="/favourites"
           element={<Favourites books={favouriteBooks} />}
         />
-        {/* <Route path="/:id" element={<BookDetails books={books} />} /> */}
+        <Route path="/:id" element={<BookDetails books={books} />} />
       </Routes>
     </BrowserRouter>
   );

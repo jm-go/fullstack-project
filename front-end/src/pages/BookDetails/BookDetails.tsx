@@ -1,33 +1,29 @@
 import Layout from "../../components/Layout/Layout";
 import "./BookDetails.scss";
 import BookCover from "../../assets/images/cover.jpg";
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Book from "../../types/book";
 import Sidebar from "../../components/Sidebar/Sidebar";
+import BookResponse from "../../types/BookResponse";
 
 type BookDetailsProps = {
-  books: Book[];
+  books: BookResponse[];
 };
 
 const BookDetails = ({ books }: BookDetailsProps) => {
   const { id } = useParams<{ id: string }>();
-  const [book, setBook] = useState(null);
 
   const selectedBook = books.find((book) => book.id === Number(id));
 
-  const getBookDetails = async () => {
-    const url = `http://localhost:8080/${id}`;
-    const response = await fetch(url);
-    const bookData = await response.json();
-    setBook(bookData);
-  };
+  if (!selectedBook) return <div className="book-details__message">No such book found.</div>;
 
-  useEffect(() => {
-    getBookDetails();
-  }, [id]);
-
-  if (!selectedBook) return <div>No such book found.</div>;
+  const {
+    title,
+    cover,
+    descriptionLong,
+    authorId: { firstName, lastName } = {},
+    genre,
+    isFavourite,
+  } = selectedBook;
 
   return (
     <Layout>
@@ -37,20 +33,18 @@ const BookDetails = ({ books }: BookDetailsProps) => {
           <div className="book-details__cover">
             <img
               className="book-details__image"
-              src={selectedBook.cover || BookCover}
-              alt={selectedBook.title}
+              src={cover || BookCover}
+              alt={title}
             />
           </div>
           <div className="book-details__info">
-            <h2 className="book-details__title">{selectedBook.title}</h2>
-            <p className="book-details__author">{selectedBook.author}</p>
-            <p className="book-details__genre">{selectedBook.genre}</p>
+            <h2 className="book-details__title">{title}</h2>
+            <p className="book-details__author">{`${firstName} ${lastName}`}</p>
+            <p className="book-details__genre">{genre}</p>
             <p className="book-details__favourite">
-              Favourites: {selectedBook.favourite ? " Yes" : " No"}
+              Favourite: {isFavourite === "true" ? " Yes" : " No"}
             </p>
-            <p className="book-details__description">
-              {selectedBook.longDescription}
-            </p>
+            <p className="book-details__description">{descriptionLong}</p>
           </div>
         </div>
       </div>

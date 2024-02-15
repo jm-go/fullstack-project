@@ -29,6 +29,11 @@
         text-align: center;
     }
 
+    &__link {
+        text-decoration: none;
+        color: inherit;
+    }
+
     &__author {
         font-size: 0.6rem;
         color: $color-grey;
