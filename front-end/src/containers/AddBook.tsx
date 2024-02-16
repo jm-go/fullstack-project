@@ -25,7 +25,7 @@ const AddBook = ({ authors }: AddBookProps) => {
     if (result.ok) {
       alert("Book added");
       const book = await result.json();
-      navigate(`/${book.id}`, { state: book });
+      navigate(`/`, { state: book });
     } else {
       const message = await result.text();
       alert(message);
