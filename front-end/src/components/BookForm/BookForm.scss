@@ -70,7 +70,7 @@
     width: 35%;
     margin-top: 1em;
     grid-column: 1/-1;
-    padding: 1rem 1rem;
+    padding: 0.8rem 0.8rem;
     display: flex;
     justify-self: center;
     justify-content: center;
@@ -79,7 +79,6 @@
     font-family: $font-text;
     background-color: $color-lavender;
     border: none;
-    font-size: 0.8rem;
     box-shadow: 0 4px 8px rgba(0, 1.5, 0, 0.2);
 
     &:hover {
