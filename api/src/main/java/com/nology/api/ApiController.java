@@ -1,11 +1,14 @@
 package com.nology.api;
 
 
+import com.nology.api.models.Author;
 import com.nology.api.models.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:5173")
@@ -34,23 +37,29 @@ public class ApiController {
         return ResponseEntity.status(HttpStatus.OK).body(apiService.getBookById(id));
     }
 
-    // Change it ??
-//    @GetMapping("/books")
-//    public ResponseEntity<List<Book>> getGreetings(@RequestParam(required = false) String countryName, @RequestParam(defaultValue = "200") int limit) {
-//
-//        if (authorName != null) {
-//            return ResponseEntity.status(HttpStatus.OK).body(apiService.getGreetingsByCountryName(countryName, limit));
-//        }
-//
-//        return ResponseEntity.status(HttpStatus.OK).body(apiService.getAllBooks(limit));
-//    }
+    @GetMapping("/books")
+    public ResponseEntity<List<Book>> getAllBooks() {
+
+        return ResponseEntity.status(HttpStatus.OK).body(apiService.getAllBooksOrderedById());
+    }
+
+    @GetMapping("/authors")
+    public ResponseEntity<List<Author>> getAllAuthors() {
+
+        return ResponseEntity.status(HttpStatus.OK).body(apiService.getAllAuthorsOrderedById());
+    }
+
+    @GetMapping("/favourites")
+    public ResponseEntity<List<Book>> getAllFavouriteBooks() {
+
+        return ResponseEntity.status(HttpStatus.OK).body(apiService.getAllFavouriteBooks());
+    }
 
     // Delete
-//    @DeleteMapping("/books/{id}")
-//    public ResponseEntity<Void> deleteBookById(@PathVariable long id) {
-//        apiService.deleteBookById(id);
-//        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-//    }
-
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteBookById(@PathVariable long id) {
+        apiService.deleteBookById(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
 
 }

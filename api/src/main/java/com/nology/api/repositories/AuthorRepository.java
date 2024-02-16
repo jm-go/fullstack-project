@@ -2,6 +2,7 @@ package com.nology.api.repositories;
 
 
 import com.nology.api.models.Author;
+import com.nology.api.models.Book;
 import jakarta.persistence.Table;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -13,6 +14,6 @@ import java.util.List;
 @Repository
 public interface AuthorRepository extends JpaRepository<Author, Long> {
 
-    @Query(value = "SELECT DISTINCT id FROM author ORDER BY id", nativeQuery = true)
-    List<Long> getDistinctIds();
+    @Query(value = "SELECT * FROM author ORDER BY id", nativeQuery = true)
+    List<Author> getAllById();
 }

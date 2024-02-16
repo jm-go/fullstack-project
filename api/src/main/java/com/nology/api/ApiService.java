@@ -9,14 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class ApiService {
 
     private final AuthorRepository authorRepository;
     private final BookRepository bookRepository;
-
 
     @Autowired
     public ApiService(BookRepository bookRepository, AuthorRepository authorRepository) {
@@ -28,10 +26,10 @@ public class ApiService {
     // Create
     public Book addBook(Book book) {
 
-        Author newAuthor = authorRepository.findById(book.getAuthorId().getId()).orElseThrow(() ->  new NotFoundException("Author Not Found."));
+        Author newAuthor = authorRepository.findById(book.getAuthorId()).orElseThrow(() ->  new NotFoundException("Author Not Found."));
         Book newBook = bookRepository.save(book);
 
-        newBook.setAuthorId(newAuthor);
+        newBook.setAuthor(newAuthor);
 
         return newBook;
     }
@@ -42,7 +40,15 @@ public class ApiService {
     }
 
     public List<Book> getAllBooksOrderedById() {
-        return bookRepository.findAllByOrderByIdAsc();
+        return bookRepository.getAllById();
+    }
+
+    public List<Book> getAllFavouriteBooks() {
+        return bookRepository.getAllFavouriteBooks();
+    }
+
+    public List<Author> getAllAuthorsOrderedById() {
+        return authorRepository.getAllById();
     }
 
 
@@ -55,8 +61,5 @@ public class ApiService {
 
         bookRepository.deleteBookById(id);
     }
-
-
-
 
 }

@@ -30,8 +30,18 @@ public class Book {
 
     @ManyToOne
     @JoinColumn(name = "author_id", insertable = false, updatable = false)
-    private Author authorId;
+    private Author author;
 
+    @Column(name = "author_id")
+    private long authorId;
+
+    public long getAuthorId() {
+        return authorId;
+    }
+
+    public void setAuthorId(long authorId) {
+        this.authorId = authorId;
+    }
 
     public void setId(long id) {
         this.id = id;
@@ -49,16 +59,12 @@ public class Book {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Author getAuthor() {
+        return this.author;
     }
 
-    public Author getAuthorId() {
-        return authorId;
-    }
-
-    public void setAuthorId(Author authorId) {
-        this.authorId = authorId;
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 
     public String getTitle() {
@@ -105,7 +111,7 @@ public class Book {
     public String toString() {
         return "Book{" +
                 "id=" + id +
-                ", author_id=" + authorId +
+                ", author_id=" + author +
                 ", title='" + title + '\'' +
                 ", descriptionShort='" + descriptionShort + '\'' +
                 ", descriptionLong='" + descriptionLong + '\'' +
