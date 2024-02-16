@@ -29,19 +29,23 @@ const BookDetails = ({ books }: BookDetailsProps) => {
               </div>
               <div className="book-details__info">
                 <h2 className="book-details__title">{selectedBook.title}</h2>
-                <section className="book-details__details"><p className="book-details__author">{`${selectedBook.authorId.firstName} ${selectedBook.authorId.lastName}`}</p>
-                <p className="book-details__genre">{selectedBook.genre}</p>
-                <p className="book-details__favourite">
-                  Favourite:{" "}
-                  {selectedBook.isFavourite === "true" ? " Yes" : " No"}
-                </p></section>
+                <section className="book-details__details">
+                  <p className="book-details__author">{`${selectedBook.author.firstName} ${selectedBook.author.lastName}`}</p>
+                  <p className="book-details__genre">{selectedBook.genre}</p>
+                  <p className="book-details__favourite">
+                    Favourite:{" "}
+                    {selectedBook.isFavourite === "true" ? " Yes" : " No"}
+                  </p>
+                </section>
                 <p className="book-details__description">
                   {selectedBook.descriptionLong}
                 </p>
               </div>
             </>
           ) : (
-            <div className="book-details__message">Oops! It looks like this book is not in my collection.</div>
+            <div className="book-details__message">
+              Oops! It looks like this book is not in my collection.
+            </div>
           )}
         </div>
       </div>

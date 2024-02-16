@@ -12,7 +12,7 @@ const BookCard = ({ book }: BookCardProps) => {
     title,
     cover,
     descriptionShort,
-    authorId: { firstName, lastName } = {},
+    author: { firstName, lastName } = {},
   } = book;
 
   return (

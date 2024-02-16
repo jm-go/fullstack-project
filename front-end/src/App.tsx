@@ -5,10 +5,13 @@ import Favourites from "./pages/Favourites/Favourites";
 import Home from "./pages/Home/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import BookResponse from "./types/BookResponse";
+import AddBook from "./containers/AddBook";
+import OptionType from "./types/OptionType";
 
 const App = () => {
   const [books, setBooks] = useState<BookResponse[]>([]);
   const [favouriteBooks, setFavouriteBooks] = useState<BookResponse[]>([]);
+  const [authors, setAuthors] = useState<OptionType[]>([]);
 
   const getBooks = async () => {
     try {
@@ -36,9 +39,16 @@ const App = () => {
     }
   };
 
+  const getAuthors = async () => {
+    const response = await fetch("http://localhost:8080/authors");
+    const authorData = await response.json();
+    setAuthors(authorData);
+  };
+
   useEffect(() => {
     getBooks();
     getFavouriteBooks();
+    getAuthors();
   }, []);
 
   return (
@@ -50,6 +60,7 @@ const App = () => {
           element={<Favourites books={favouriteBooks} />}
         />
         <Route path="/:id" element={<BookDetails books={books} />} />
+        <Route path="/add" element={<AddBook authors={authors} />} />
       </Routes>
     </BrowserRouter>
   );
